@@ -8,9 +8,7 @@
 import Login from "@/components/Login.vue";
 
 export default {
-  beforeRouteLeave(to, from, next) {
-    next();
-  },
+
   name: "Login",
   components: {
     Login

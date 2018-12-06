@@ -6,36 +6,34 @@ import Login from "./views/Login.vue";
 import About from "./views/About.vue";
 
 Vue.use(Router);
-
+var loggedin = false
 const router = new Router({
   routes: [
-    {
-      path: "/about",
-      name: "about",
-      component: About,
-      meta: { requiresAuth: true }
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      // component: () =>
-      //   import(/* webpackChunkName: "about" */ "./views/About.vue")
-    },
-    {
-      path: "/",
-      name: "Home",
-      component: Home,
-     
-        // called when the route that renders this component is about to
-        // be navigated away from.
-        // has access to `this` component instance.
-      
-    },
     {
       path: "/login",
       name: "Login",
       component: Login,
-      meta: { requiresAuth: false }
     },
+    {
+      path: "/about",
+      name: "about",
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./views/About.vue"),
+      meta: { requiresAuth: true },
+      beforeEnter: (to, from, next) => {
+        if (loggedin) {
+          next()
+        } else {
+          next({ path: '/Login' })
+        }
+      }
+    },
+    {
+      path: "/",
+      name: "Home",
+      component: Home
+    },
+
     {
       path: "/user/:id",
       name: "User",

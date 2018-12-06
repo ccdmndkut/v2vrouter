@@ -12,10 +12,7 @@
 
 <script>
 export default {
-  beforeRouteLeave(to, from, next) {
-    console.log("bye");
-    next()
-  },
+
   name: "user",
   data() {
     return {

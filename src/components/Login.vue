@@ -6,9 +6,7 @@
 
 <script>
 export default {
-  beforeRouteLeave(to, from, next) {
-    next();
-  },
+ 
   name: "Login",
   computed: {
     username() {}
