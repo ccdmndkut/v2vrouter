@@ -3,36 +3,51 @@
     <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <router-link to="/about">
+          <span
+            id="nav"
+            class="font-weight-light"
+          >MATERIAL DESIGN</span>
+        </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
         flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
+        to="/"
+        active-class
       >
         <span class="mr-2">Latest Release</span>
       </v-btn>
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <router-view />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
+  name: "App",
+  data() {
     return {
       //
+    };
+  },
+  methods: {
+    mdcbutton() {
+      console.log("button leave");
+      event.currentTarget.blur();
     }
   }
-}
+};
 </script>
+<style lang="scss">
+a {
+  font-weight: bold;
+  color: #2c3e50;
+  &.router-link-exact-active {
+    color: #42b983;
+  }
+}
+</style>
