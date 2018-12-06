@@ -28,6 +28,9 @@
 
 <script>
 export default {
+  beforeRouteLeave(to, from, next) {
+    next();
+  },
   name: "App",
   data() {
     return {

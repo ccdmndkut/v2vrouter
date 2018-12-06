@@ -7,12 +7,15 @@
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
 
-  export default {
-    name: "home",
+export default {
+  beforeRouteLeave(to, from, next) {
+    next({ name: 'Login' })
+  },
+  name: "Home",
   components: {
     HelloWorld
   }
-  }
+};
 </script>
 
 

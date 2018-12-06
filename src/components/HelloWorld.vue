@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  name: "HelloWorld",
   computed: {
     username() {
       // We will see what `params` is shortly

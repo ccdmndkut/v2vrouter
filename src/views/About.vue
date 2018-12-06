@@ -16,3 +16,13 @@
       </v-btn>
   </div>
 </template>
+
+<script>
+export default {
+  beforeRouteLeave(to, from, next) {
+    next();
+  },
+  name: "About",
+
+};
+</script>
